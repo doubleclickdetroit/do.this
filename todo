@@ -1,0 +1,78 @@
+hierarchy
+  user ("Me")
+    relationships ("People")
+    entities 
+      tags
+      comments
+      people
+    stories ("Stories")
+      entities
+        ...
+
+resulting routes/api
+  / 
+    /people
+    /entities 
+      /entities/:id/tags
+      /entities/:id/comments
+      /entities/:id/people
+    /stories
+      /stories/:id/entities
+
+
+Entity(title, note, date, time)[Todo, Asset, Message, Event]
+  Tags
+  Relationships
+  Comments
+  (Story)
+
+
+pieces
+  well-defined
+    [ ] authentication (email + oauth)
+    [ ] shell accounts (for invited users)
+    [ ] entities
+    [ ] stories -> optionally nest entities unders stories
+    [ ] tags, comments, people for entities
+    [ ] subclassing entities
+      [ ] todo
+        [ ] ?
+      [ ] message
+        [ ] ?
+      [ ] event
+        [ ] map
+        [ ] ?
+      [ ] asset
+        [ ] file upload
+        [ ] ?
+  later/undefined
+    [ ] 3rd party api calls (e.g. grab facebook data)
+    [ ] mailer
+
+
+api schedule
+  week 1 (half week)
+    start rails 4 app
+    authentication
+      email (devise)
+      oauth (omniauth)
+    invited user shell accounts
+  week 2
+    start entities
+    entities
+      people
+      tags
+      comments
+    start basic authorization
+      permissions on entities where entity.people.include?(user)
+    stories
+      optionally nest entities
+  week 3
+    start subclassing entities
+      asset
+        file upload (paperclip)
+          set up example upload form for front-end
+      event
+        mappable
+      todo
+      message
