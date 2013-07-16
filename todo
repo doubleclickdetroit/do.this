@@ -8,6 +8,8 @@ hierarchy
     stories ("Stories")
       entities
         ...
+      people
+      tags
 
 resulting routes/api
   / 
@@ -18,6 +20,8 @@ resulting routes/api
       /entities/:id/people
     /stories
       /stories/:id/entities
+      /stories/:id/peoples
+      /stories/:id/tags
 
 
 Entity(title, note, date, time)[Todo, Asset, Message, Event]
@@ -38,6 +42,7 @@ pieces
       [ ] todo
         [ ] ?
       [ ] message
+        [ ] can use comments as messages (but alias out term "comments")
         [ ] ?
       [ ] event
         [ ] map
@@ -45,9 +50,12 @@ pieces
       [ ] asset
         [ ] file upload
         [ ] ?
+    [ ] fetch entities/stories in common with another person
   later/undefined
     [ ] 3rd party api calls (e.g. grab facebook data)
     [ ] mailer
+    [ ] profile
+    [ ] unique slugs for entity ids? e.g. /entities/123/entity-title
 
 
 api schedule
