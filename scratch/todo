@@ -32,23 +32,22 @@ resulting routes/api
 api has routes to 
   timelines
     [ ] show my timeline
-    [ ] show my timeline stories
     [ ] show my timeline for a specific tag
+    [ ] + pagination
+    [ ] show my timeline stories
     [ ] show my common timeline with a specific person
   entities
-    [ ] create an entity
-    [ ] update an entity
-    [ ] destroy an entity
-    [ ] move an entity to a story
-    [ ] move an entity out of a story (?)
+    [X] create an entity
+    [X] update an entity
+    [X] destroy an entity
     add/remove a
-      [ ] person
       [ ] tag
       [ ] comment
-        [ ] or update
-
-    
-
+        [ ] update comment
+      [ ] person
+    stories
+      [ ] move an entity to a story
+      [ ] move an entity out of a story (?)
 
 
 Entity(title, note, date, time)[Todo, Asset, Message, Event]
@@ -107,6 +106,7 @@ api schedule
       [ ] people
     [ ] start basic authorization
       [ ] permissions on entities where entity.people.include?(user)
+      [ ] permissions on comments where entity.people.include?(user)
     [ ] stories
       [ ] optionally nest entities
     [ ] timelines
