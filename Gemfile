@@ -6,6 +6,8 @@ gem 'rails', '4.0.0'
 
 gem 'unicorn'
 
+gem 'pg'
+
 gem 'haml-rails'
 
 # gem 'simple_form', '~> 2.1.0'
@@ -34,7 +36,6 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'factory_girl_rails'
 
   gem 'rspec-rails'
@@ -54,8 +55,4 @@ group :development, :test do
   elsif RUBY_PLATFORM.match(/darwin/i)
     gem 'rb-fsevent' 
   end
-end
-
-group :production do
-  gem 'pg'
 end
