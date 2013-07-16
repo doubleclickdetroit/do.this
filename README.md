@@ -1,6 +1,6 @@
 # Rails Template
 
-This is a template Rails 4.0.0 application that includes:
+This is a template Rails 4.0.0 application built off of [this commit of bchase/rails-template](https://github.com/bchase/rails-template/commit/789d5c2dd8920a1d7cdc6f1f50bcae17b2dfa84f). It uses:
 
 * Haml, SimpleForm
 * RSpec, Cucumber, factory_girl, Poltergeist, Guard, Spork
@@ -29,50 +29,31 @@ ruby 2.0.0p0 (2013-02-24 revision 39474) [x86_64-linux]
 # $ rvm install 2.0.0
 ```
 
+You will also need to have a [PostgreSQL](http://www.postgresql.org/) 9.1 server running locally. Once you have that set up, ensure that you have an account for your `$USERNAME` with an empty password:
+
+```
+$ sudo -u postgres psql
+postgres=# CREATE ROLE <username> SUPERUSER LOGIN;
+```
+
 ### Obtaining and Using the Rails App
 
 First, obtain the code:
 
 ```bash
-# create a directory where your app will live locally
-$ mkdir app-name
-$ cd app-name
+# move to your development directory
+$ cd dev-dir
 
 # then clone the git repo into that directory
-$ git clone git@github.com:bchase/rails-template.git .
-# NOTE: this clones the repo into the working directory 
-# with `.` (here, this represents the new `app-name` dir)
-
-# for an app with user auth already started, clone from the the `devise` branch instead
-# $ git clone git@github.com:bchase/rails-template.git -b devise .
+$ git clone git@github.com:doubleclickdetroit/buffalo.git
 ```
-
-Next, get rid of the local git repo, create your own, and push:
-
-```bash
-# get rid of git repo to this point and init a new one
-$ rm -rf .git/
-$ git init && git add . && git commit -m 'initial commit'
-
-# to add a new remote and push, simply:
-# $ git remote add origin [your-git-remote]
-# $ git push -u origin master
-```
-
-And finally, get up and running with:
+Then get up and running with:
 
 ```bash
 $ bundle install    # install necessary gems
-$ rake db:migrate   # set up the database
-$ rails server      # start the rails server
-```
-
-If `rails server` fires up without error, you'll find the Rails app running at `http://localhost:3000`.
-
-> Alternatively, you can run from the `Procfile` with:
-
-> ```bash
-$ foreman start
+$ rake db:create    # create the database
+$ rake db:migrate   # migrate the new database
+$ foreman start     # start the rails server
 ```
 
 ## Deploying to Heroku
