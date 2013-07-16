@@ -1,5 +1,12 @@
 require 'spec_helper'
 
 describe Entity do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:user) { create(:user) }
+  let(:entity) { create(:entity, user: user) }
+
+  describe '#name' do
+    it 'is an alias for Entity#title' do
+      entity.name.should eq(entity.title)
+    end
+  end
 end
