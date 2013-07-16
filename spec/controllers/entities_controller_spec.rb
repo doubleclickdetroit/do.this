@@ -30,37 +30,6 @@ describe EntitiesController do
   # EntitiesController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  # describe "GET index" do
-  #   it "assigns all entities as @entities" do
-  #     entity = Entity.create! valid_attributes
-  #     get :index, {}, valid_session
-  #     assigns(:entities).should eq([entity])
-  #   end
-  # end
-
-  # describe "GET show" do
-  #   it "assigns the requested entity as @entity" do
-  #     entity = Entity.create! valid_attributes
-  #     get :show, {:id => entity.to_param}, valid_session
-  #     assigns(:entity).should eq(entity)
-  #   end
-  # end
-
-  # describe "GET new" do
-  #   it "assigns a new entity as @entity" do
-  #     get :new, {}, valid_session
-  #     assigns(:entity).should be_a_new(Entity)
-  #   end
-  # end
-
-  # describe "GET edit" do
-  #   it "assigns the requested entity as @entity" do
-  #     entity = Entity.create! valid_attributes
-  #     get :edit, {:id => entity.to_param}, valid_session
-  #     assigns(:entity).should eq(entity)
-  #   end
-  # end
-
   describe "POST create" do
     describe "with valid params" do
       it "creates a new Entity" do
@@ -156,5 +125,36 @@ describe EntitiesController do
       response.should redirect_to(entities_url)
     end
   end
+
+  # describe "GET index" do
+  #   it "assigns all entities as @entities" do
+  #     entity = Entity.create! valid_attributes
+  #     get :index, {}, valid_session
+  #     assigns(:entities).should eq([entity])
+  #   end
+  # end
+
+  # describe "GET show" do
+  #   it "assigns the requested entity as @entity" do
+  #     entity = Entity.create! valid_attributes
+  #     get :show, {:id => entity.to_param}, valid_session
+  #     assigns(:entity).should eq(entity)
+  #   end
+  # end
+
+  # describe "GET new" do
+  #   it "assigns a new entity as @entity" do
+  #     get :new, {}, valid_session
+  #     assigns(:entity).should be_a_new(Entity)
+  #   end
+  # end
+
+  # describe "GET edit" do
+  #   it "assigns the requested entity as @entity" do
+  #     entity = Entity.create! valid_attributes
+  #     get :edit, {:id => entity.to_param}, valid_session
+  #     assigns(:entity).should eq(entity)
+  #   end
+  # end
 
 end
