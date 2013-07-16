@@ -1,26 +1,6 @@
 class EntitiesController < ApplicationController
   before_action :set_entity, only: [:show, :edit, :update, :destroy]
 
-  # GET /entities
-  # GET /entities.json
-  def index
-    @entities = Entity.all
-  end
-
-  # GET /entities/1
-  # GET /entities/1.json
-  def show
-  end
-
-  # GET /entities/new
-  def new
-    @entity = Entity.new
-  end
-
-  # GET /entities/1/edit
-  def edit
-  end
-
   # POST /entities
   # POST /entities.json
   def create
@@ -60,6 +40,26 @@ class EntitiesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # # GET /entities
+  # # GET /entities.json
+  # def index
+  #   @entities = Entity.all
+  # end
+
+  # # GET /entities/1
+  # # GET /entities/1.json
+  # def show
+  # end
+
+  # # GET /entities/new
+  # def new
+  #   @entity = Entity.new
+  # end
+
+  # # GET /entities/1/edit
+  # def edit
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
