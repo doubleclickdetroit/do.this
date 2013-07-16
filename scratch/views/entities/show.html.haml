@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @entity.title
+%p
+  %b Note:
+  = @entity.note
+%p
+  %b Time:
+  = @entity.time
+%p
+  %b Date:
+  = @entity.date
+%p
+  %b User:
+  = @entity.user
+
+= link_to 'Edit', edit_entity_path(@entity)
+\|
+= link_to 'Back', entities_path
