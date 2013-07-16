@@ -83,6 +83,9 @@ pieces
     [ ] profile
     [ ] unique slugs for entity ids? e.g. /entities/123/entity-title
 
+todo
+  [ ] move "request" specs
+
 
 api schedule
   week 1 (half week)
