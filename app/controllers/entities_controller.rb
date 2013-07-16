@@ -4,7 +4,7 @@ class EntitiesController < ApplicationController
   # POST /entities
   # POST /entities.json
   def create
-    @entity = Entity.new(entity_params)
+    @entity = Entity.new(entity_params.merge({user: current_user}))
 
     respond_to do |format|
       if @entity.save
@@ -49,7 +49,7 @@ private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def entity_params
-    params.require(:entity).permit(:title, :note, :time, :date, :user_id)
+    params.require(:entity).permit(:title, :note, :time, :date)
   end
 
   # # GET /entities

@@ -5,7 +5,11 @@ describe EntitiesController do
     # before do request.accept = 'application/json' end
 
     describe "POST /entities" do
-      let(:entity) { entity = build(:entity).attributes }
+      let(:entity) { build(:entity).attributes }
+      let(:user)   { create(:user) }
+      before(:each) do
+        post user_session_path, { user: { email: user.email, password: 'asdfasdf' } }
+      end
         
       it "creates a new Entity" do
         expect {
@@ -23,6 +27,11 @@ describe EntitiesController do
         e.note.should  eq(entity['note'])
         e.time.should  eq(entity['time'])
         e.date.should  eq(entity['date'])
+      end
+
+      it "sets the user to current_user on a new Entity" do
+        post entities_path, {format: :json, entity: entity}
+        Entity.last.user.should eq(user)
       end
     end
 
