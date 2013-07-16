@@ -1,0 +1,12 @@
+= simple_form_for(@entity) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.input :note
+    = f.input :time
+    = f.input :date
+    = f.association :user
+
+  .form-actions
+    = f.button :submit
