@@ -60,11 +60,11 @@ pieces
 
 api schedule
   week 1 (half week)
-    start rails 4 app
-    authentication
-      email (devise)
-      oauth (omniauth)
-    invited user shell accounts
+    [X] start rails 4 app
+    [ ] authentication
+      [ ] email (devise)
+      [ ] oauth (omniauth)
+    [ ] invited user shell accounts
   week 2
     start entities
     entities
