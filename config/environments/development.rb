@@ -33,4 +33,13 @@ App::Application.configure do
 
   # Do not eager load code on boot.
   config.eager_load = false
+
+  # use pry for rails console
+  silence_warnings do
+    begin
+      require 'pry'
+      IRB = Pry
+    rescue LoadError
+    end
+  end
 end
