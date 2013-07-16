@@ -23,9 +23,9 @@ resulting routes/api
       /stories/:id/peoples
       /stories/:id/tags
   /timeline
+    /timeline/tag/:tag_name
     /timeline/stories
     /timeline/person/:person_id
-    /timeline/tag/:tag_name
 
 
 
