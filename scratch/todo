@@ -22,6 +22,33 @@ resulting routes/api
       /stories/:id/entities
       /stories/:id/peoples
       /stories/:id/tags
+  /timeline
+    /timeline/stories
+    /timeline/person/:person_id
+    /timeline/tag/:tag_name
+
+
+
+api has routes to 
+  timelines
+    [ ] show my timeline
+    [ ] show my timeline stories
+    [ ] show my timeline for a specific tag
+    [ ] show my common timeline with a specific person
+  entities
+    [ ] create an entity
+    [ ] update an entity
+    [ ] destroy an entity
+    [ ] move an entity to a story
+    [ ] move an entity out of a story (?)
+    add/remove a
+      [ ] person
+      [ ] tag
+      [ ] comment
+        [ ] or update
+
+    
+
 
 
 Entity(title, note, date, time)[Todo, Asset, Message, Event]
@@ -69,15 +96,22 @@ api schedule
         [ ] google
     [ ] invited user shell accounts
   week 2
-    [ ] start entities
+    [X] start entities
     [ ] entities
-      [ ] people
       [ ] tags
       [ ] comments
+    [ ] timelines
+      [ ] full
+      [ ] by tag
+    [ ] entities
+      [ ] people
     [ ] start basic authorization
       [ ] permissions on entities where entity.people.include?(user)
     [ ] stories
       [ ] optionally nest entities
+    [ ] timelines
+      [ ] stories
+      [ ] by person
   week 3
     start subclassing entities
       asset
