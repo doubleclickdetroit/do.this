@@ -20,6 +20,8 @@ describe "Relationships" do
       r.user.should eq(user)
     end
 
+    it 'requires a user_id'
+
     it 'throws an error if the User does not own the Entity'
   end
 

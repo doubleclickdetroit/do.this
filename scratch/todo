@@ -15,13 +15,13 @@ resulting routes/api
   / 
     /people
     /entities 
-      /entities/:id/comments
-      /entities/:id/tags
-      /entities/:id/relationships {user_id: 123}
+      /entities/:entity_id/comments
+      /entities/:entity_id/tags
+      /entities/:entity_id/relationships {user_id: 123}
     /stories
-      /stories/:id/entities
-      /stories/:id/tags
-      /entities/:id/relationships {user_id: 123}
+      /stories/:story_id/entities
+      /stories/:story_id/tags
+      /stories/:story_id/relationships/:id
   /timeline
     /timeline/tag/:tag_name
     /timeline/stories
@@ -42,7 +42,7 @@ api has routes to
     [X] destroy an entity
     add/remove a
       [X] tag
-      [ ] person
+      [X] person
       [ ] comment
         [ ] update comment
     stories
