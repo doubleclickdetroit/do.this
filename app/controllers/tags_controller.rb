@@ -1,20 +1,16 @@
 class TagsController < ApplicationController
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
 
-  # GET /tags/1
-  # GET /tags/1.json
-  def show
-  end
-
-  # POST /tags
-  # POST /tags.json
   def create
-    @tag = Tag.new(tag_params)
+    entity    = Entity.find(params[:entity_id])
+    @tag      = entity.tags.build(tag_params)
+    @tag.user = current_user
 
     respond_to do |format|
       if @tag.save
         format.html { redirect_to @tag, notice: 'Tag was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @tag }
+        # format.json { render action: 'show', status: :created, location: @tag }
+        format.json { render action: 'show', status: :created }
       else
         format.html { render action: 'new' }
         format.json { render json: @tag.errors, status: :unprocessable_entity }
@@ -22,8 +18,6 @@ class TagsController < ApplicationController
     end
   end
 
-  # DELETE /tags/1
-  # DELETE /tags/1.json
   def destroy
     @tag.destroy
     respond_to do |format|
@@ -31,6 +25,9 @@ class TagsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # def show
+  # end
 
 private
   # Use callbacks to share common setup or constraints between actions.
@@ -40,7 +37,7 @@ private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def tag_params
-    params.require(:tag).permit(:name, :user_id, :taggable_id, :taggable_type)
+    params.require(:tag).permit(:name)
   end
 
   # # GET /tags

@@ -1,8 +1,6 @@
 class EntitiesController < ApplicationController
   before_action :set_entity, only: [:show, :edit, :update, :destroy]
 
-  # POST /entities
-  # POST /entities.json
   def create
     @entity = Entity.new(entity_params.merge({user: current_user}))
 
@@ -17,8 +15,6 @@ class EntitiesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /entities/1
-  # PATCH/PUT /entities/1.json
   def update
     respond_to do |format|
       if @entity.update(entity_params)
@@ -31,8 +27,6 @@ class EntitiesController < ApplicationController
     end
   end
 
-  # DELETE /entities/1
-  # DELETE /entities/1.json
   def destroy
     @entity.destroy
     respond_to do |format|

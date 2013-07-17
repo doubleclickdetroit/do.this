@@ -1,9 +1,5 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
   factory :tag do
-    name "MyString"
-    user nil
-    taggable nil
+    sequence(:name) {|num| "Tag ##{num}"}
   end
 end

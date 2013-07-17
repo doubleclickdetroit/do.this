@@ -85,6 +85,7 @@ pieces
 
 todo
   [ ] move "request" specs
+  [ ] spec param filtering? (e.g. no foreign key or type setting)
 
 
 api schedule
