@@ -26,6 +26,19 @@ describe TimelineController do
         items.count.should eq(2)
         items.all?{|item| item['user']['id'] == user.id}
       end
+
+      it 'paginates 10 per request' do
+        9.times do user.entities << create(:entity) end
+        user.entities.count.should eq(11)
+
+        get timeline_path, {format: :json}
+        items = JSON.parse(response.body)
+        items.count.should eq(10)
+
+        get timeline_path, {format: :json, page: 2}
+        items = JSON.parse(response.body)
+        items.count.should eq(1)
+      end
     end
 
     describe "GET /timeline/tag/:id" do
@@ -43,6 +56,27 @@ describe TimelineController do
         json = JSON.parse(response.body)
         json.count.should eq(1)
         json.first['title'].should eq(entity.title)
+      end
+
+      it 'paginates 10 per request' do
+        user.entities.destroy_all
+
+        tag_name = 'foobar'
+        11.times do 
+          e   = create(:entity, user: user)
+          tag = create(:tag, name: tag_name, user: user, taggable: e)
+        end
+        user.tags.count.should eq(11)
+        user.entities.count.should eq(11)
+        Entity.count.should eq(12)
+
+        get timeline_tag_path(tag_name), { format: :json }
+        items = JSON.parse(response.body)
+        items.count.should eq(10)
+
+        get timeline_tag_path(tag_name), { format: :json, page: 2 }
+        items = JSON.parse(response.body)
+        items.count.should eq(1)
       end
 
       it 'throws an error if the User does not own the Tag'

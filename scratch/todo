@@ -28,14 +28,16 @@ resulting routes/api
     /timeline/person/:person_id
 
 
-
 api has routes to 
   timelines
     [\] show my timeline
+      [ ] + pagination
     [\] show my timeline for a specific tag
+      [ ] + pagination
     [ ] show my common timeline with a specific person
-    [ ] + pagination
+      [ ] + pagination
     [ ] show my timeline stories
+      [ ] + pagination
   entities
     [X] create an entity
     [X] update an entity
@@ -88,6 +90,7 @@ todo
   [ ] add object class to timeline json
   [ ] move "request" specs
   [ ] spec param filtering? (e.g. no foreign key or type setting)
+  [ ] kaminari defaults in models? e.g. paginates_per and max_paginates_per 
 
 
 api schedule
