@@ -1,6 +1,6 @@
 hierarchy
   user ("Me")
-    relationships ("People")
+    relationships
     entities 
       tags
       comments
@@ -13,7 +13,7 @@ hierarchy
 
 resulting routes/api
   / 
-    /people
+    /relationships
     /entities 
       /entities/:entity_id/comments
       /entities/:entity_id/tags
@@ -31,11 +31,17 @@ resulting routes/api
 api has routes to 
   timelines
     [\] show my timeline
-      [ ] + pagination
+      [X] entities
+      [X] + pagination
+      [ ] stories
     [\] show my timeline for a specific tag
-      [ ] + pagination
+      [X] entities
+      [X] + pagination
+      [ ] stories
     [ ] show my common timeline with a specific person
+      [ ] entities
       [ ] + pagination
+      [ ] stories
     [ ] show my timeline stories
       [ ] + pagination
   entities
@@ -65,7 +71,7 @@ pieces
     [ ] shell accounts (for invited users)
     [ ] entities
     [ ] stories -> optionally nest entities unders stories
-    [ ] tags, comments, people for entities
+    [ ] tags, comments, relationships for entities
     [ ] subclassing entities
       [ ] todo
         [ ] ?
@@ -112,9 +118,11 @@ api schedule
       [X] full
       [\] by tag
     [ ] entities
-      [ ] people
+      [ ] relationships
     [ ] start basic authorization
       [ ] permissions on entities where entity.people.include?(user)
+      [ ] permissions on tags where entity.people.include?(user)
+      [ ] permissions on relationships where entity.people.include?(user)
       [ ] permissions on comments where entity.people.include?(user)
     [ ] stories
       [ ] optionally nest entities
