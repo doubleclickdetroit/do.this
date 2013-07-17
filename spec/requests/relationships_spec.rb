@@ -15,7 +15,9 @@ describe "Relationships" do
         post entity_relationships_path(entity), { format: :json, relationship: relationship }
       }.to change(Relationship, :count).by(1)
 
-      entity.relationships.last.should eq(Relationship.last)
+      r = entity.relationships.last
+      r.should eq(Relationship.last)
+      r.user.should eq(user)
     end
 
     it 'throws an error if the User does not own the Entity'
@@ -23,8 +25,12 @@ describe "Relationships" do
 
   describe "DELETE /entities/:entity_id/relationships/:id" do
     it 'destroys the Relationship for the Entity' do
-      pending
-      # delete entity_relationships_path(entity, relationship), { format: :json, relationship: {} }
+      relationship = create(:relationship)
+      entity.relationships << relationship
+
+      expect {
+        delete entity_relationship_path(entity, relationship), { format: :json, relationship: {} }
+      }.to change(Relationship, :count).by(-1)
     end
     it 'throws an error if the User does not own the Entity'
   end

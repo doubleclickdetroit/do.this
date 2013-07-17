@@ -2,7 +2,8 @@ class RelationshipsController < ApplicationController
   before_action :set_relationship, only: [:show, :edit, :update, :destroy]
 
   def create
-    @relationship = Relationship.new(relationship_params)
+    entity = Entity.find(params[:entity_id])
+    @relationship = entity.relationships.build(relationship_params)
 
     respond_to do |format|
       if @relationship.save
