@@ -32,19 +32,19 @@ resulting routes/api
 api has routes to 
   timelines
     [\] show my timeline
-    [ ] show my timeline for a specific tag
+    [\] show my timeline for a specific tag
+    [ ] show my common timeline with a specific person
     [ ] + pagination
     [ ] show my timeline stories
-    [ ] show my common timeline with a specific person
   entities
     [X] create an entity
     [X] update an entity
     [X] destroy an entity
     add/remove a
       [X] tag
+      [ ] person
       [ ] comment
         [ ] update comment
-      [ ] person
     stories
       [ ] move an entity to a story
       [ ] move an entity out of a story (?)
@@ -84,6 +84,8 @@ pieces
     [ ] unique slugs for entity ids? e.g. /entities/123/entity-title
 
 todo
+  [ ] validate tag names e.g. "all-lower-case-hyphen-separated"
+  [ ] add object class to timeline json
   [ ] move "request" specs
   [ ] spec param filtering? (e.g. no foreign key or type setting)
 
@@ -100,12 +102,12 @@ api schedule
     [ ] invited user shell accounts
   week 2
     [X] start entities
-    [ ] entities
-      [ ] tags
+    [\] entities
+      [\] tags
       [ ] comments
     [\] timelines
       [X] full
-      [ ] by tag
+      [\] by tag
     [ ] entities
       [ ] people
     [ ] start basic authorization
