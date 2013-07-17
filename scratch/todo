@@ -31,7 +31,7 @@ resulting routes/api
 
 api has routes to 
   timelines
-    [ ] show my timeline
+    [\] show my timeline
     [ ] show my timeline for a specific tag
     [ ] + pagination
     [ ] show my timeline stories
@@ -102,8 +102,8 @@ api schedule
     [ ] entities
       [ ] tags
       [ ] comments
-    [ ] timelines
-      [ ] full
+    [\] timelines
+      [X] full
       [ ] by tag
     [ ] entities
       [ ] people
@@ -114,6 +114,7 @@ api schedule
       [ ] optionally nest entities
     [ ] timelines
       [ ] stories
+      [ ] full to include stories
       [ ] by person
   week 3
     start subclassing entities
