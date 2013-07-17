@@ -5,13 +5,11 @@ describe RelationshipsController do
     describe 'nested under /entities' do
 
       it "routes to #create" do
-        pending
         post("/entities/123/relationships").should route_to("relationships#create", :entity_id => "123")
       end
 
       it "routes to #destroy" do
-        pending
-        delete("/entities/456/relationships/1").should route_to("relationships#destroy", :entity_id => "456")
+        delete("/entities/456/relationships/789").should route_to("relationships#destroy", :entity_id => "456", :id => "789")
       end
 
     end

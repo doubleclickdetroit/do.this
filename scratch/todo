@@ -4,24 +4,24 @@ hierarchy
     entities 
       tags
       comments
-      people
+      relationships
     stories ("Stories")
       entities
         ...
-      people
       tags
+      relationships
 
 resulting routes/api
   / 
     /people
     /entities 
-      /entities/:id/tags
       /entities/:id/comments
-      /entities/:id/people
+      /entities/:id/tags
+      /entities/:id/relationships {user_id: 123}
     /stories
       /stories/:id/entities
-      /stories/:id/peoples
       /stories/:id/tags
+      /entities/:id/relationships {user_id: 123}
   /timeline
     /timeline/tag/:tag_name
     /timeline/stories

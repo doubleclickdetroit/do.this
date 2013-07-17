@@ -7,7 +7,7 @@ class RelationshipsController < ApplicationController
     respond_to do |format|
       if @relationship.save
         format.html { redirect_to @relationship, notice: 'Relationship was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @relationship }
+        format.json { render action: 'show', status: :created }
       else
         format.html { render action: 'new' }
         format.json { render json: @relationship.errors, status: :unprocessable_entity }
@@ -31,6 +31,6 @@ class RelationshipsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def relationship_params
-      params.require(:relationship)#.permit(:user_id, :relatable)
+      params.require(:relationship).permit(:user_id)
     end
 end
