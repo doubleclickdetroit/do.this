@@ -39,13 +39,4 @@ describe "Tags" do
     it 'throws an error if the User does not own the Entity'
   end
 
-  describe "GET /timeline/tag/:id" do
-    it 'returns all Entities that have that Tag for the User' do
-      pending
-      get timeline_tag_path(tag), { format: :json }
-    end
-
-    it 'throws an error if the User does not own the Tag'
-  end
-
 end

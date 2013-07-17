@@ -41,7 +41,7 @@ api has routes to
     [X] update an entity
     [X] destroy an entity
     add/remove a
-      [ ] tag
+      [X] tag
       [ ] comment
         [ ] update comment
       [ ] person

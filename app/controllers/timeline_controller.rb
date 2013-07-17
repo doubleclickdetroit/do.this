@@ -4,6 +4,8 @@ class TimelineController < ApplicationController
   end
 
   def tag
+    @tags  = Tag.where name: params[:name], user: current_user
+    @items = @tags.map &:taggable
   end
 
   def person
