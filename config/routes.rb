@@ -4,6 +4,7 @@ App::Application.routes.draw do
 
   resources :entities, only: [:create, :update, :destroy] do
     resources :tags, only: [:create, :destroy]
+    resources :relationships, only: [:create, :destroy]
   end
 
   scope :timeline do
