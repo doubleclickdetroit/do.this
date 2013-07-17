@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130716062829) do
+ActiveRecord::Schema.define(version: 20130717045243) do
 
   create_table "entities", force: true do |t|
     t.string   "title"
@@ -24,6 +24,19 @@ ActiveRecord::Schema.define(version: 20130716062829) do
   end
 
   add_index "entities", ["user_id"], name: "index_entities_on_user_id", using: :btree
+
+  create_table "tags", force: true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tags", ["name"], name: "index_tags_on_name", using: :btree
+  add_index "tags", ["taggable_id", "taggable_type"], name: "index_tags_on_taggable_id_and_taggable_type", using: :btree
+  add_index "tags", ["user_id"], name: "index_tags_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
