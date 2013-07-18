@@ -24,6 +24,7 @@ group :doc do
 end
 
 gem 'devise', github: 'plataformatec/devise'
+gem 'cancan'
 
 gem 'therubyracer', :platforms => :ruby
 gem 'less-rails'

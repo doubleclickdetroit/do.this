@@ -1,5 +1,6 @@
 class EntitiesController < ApplicationController
   before_action :set_entity, only: [:show, :edit, :update, :destroy]
+  authorize_resource
 
   def create
     @entity = Entity.new(entity_params.merge({user: current_user}))
