@@ -11,6 +11,16 @@ describe "User" do
 
         it{ should be_able_to(:crud, Entity) }
       end
+
+      context 'through a Relationship to the Entity' do
+        subject       { ability }
+        let(:ability) { Ability.new(user) }
+        let(:user)    { create(:user) }
+        let(:entity)  { create(:entity, users: [user]) }
+
+        it{ should be_able_to([:read, :update], entity) }
+        it{ should_not be_able_to([:destroy], entity) }
+      end
     end
   end
 end
