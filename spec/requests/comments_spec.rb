@@ -17,14 +17,32 @@ describe "Comments" do
       }.to change(Comment, :count).by(1)
       
       entity.comments.last.body.should eq(comment['body'])
+      entity.comments.last.user.should eq(user)
     end
 
     it 'throws an error if the User does not own the Entity'
   end
 
+  describe "PUT /entities/:entity_id/comments/:id" do
+    it 'updates the Comment body for an existing Comment' do
+      comment        = create(:comment, entity: entity, user: user)
+      body           = comment.body.next
+      comment_params = { body: body }
+
+      expect {
+        put entity_comment_path(entity, comment), { format: :json, comment: comment_params }
+      }.to change(Comment, :count).by(0)
+      
+      entity.comments.last.body.should eq(body)
+      entity.comments.last.user.should eq(user)
+    end
+
+    it 'throws an error if the User does not own the Comment'
+  end
+
   describe "DELETE /entities/:entity_id/comments/:id" do
     it 'removes a Comment from an existing Entity' do
-      comment = create(:comment, user: user)
+      comment = create(:comment, entity: entity, user: user)
       entity.comments << comment
       entity.comments.count.should eq(1)
 
@@ -35,6 +53,6 @@ describe "Comments" do
       entity.reload.comments.count.should eq(0)
     end
 
-    it 'throws an error if the User does not own the Entity'
+    it 'throws an error if the User does not own the Comment'
   end
 end

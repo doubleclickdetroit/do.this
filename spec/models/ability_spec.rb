@@ -21,7 +21,7 @@ describe "User" do
       context 'through an EntityUser to the Entity' do
         let(:ability) { Ability.new(entity_user) }
 
-        it{ should be_able_to([:read, :update], entity) }
+        # it{ should be_able_to([:read, :update], entity) }
         # it{ should_not be_able_to([:destroy], entity) }
       end
     end

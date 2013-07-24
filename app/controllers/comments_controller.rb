@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
   def create
     @entity = Entity.find params[:entity_id]
     @comment = @entity.comments.build(comment_params)
+    @comment.user = current_user
 
     respond_to do |format|
       if @comment.save
@@ -24,17 +25,17 @@ class CommentsController < ApplicationController
     end
   end
 
-  # def update
-  #   respond_to do |format|
-  #     if @comment.update(comment_params)
-  #       format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
-  #       format.json { head :no_content }
-  #     else
-  #       format.html { render action: 'edit' }
-  #       format.json { render json: @comment.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
+  def update
+    respond_to do |format|
+      if @comment.update(comment_params)
+        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
 private
   # Use callbacks to share common setup or constraints between actions.
@@ -44,7 +45,7 @@ private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def comment_params
-    params.require(:comment).permit(:body, :user_id)
+    params.require(:comment).permit(:body)
   end
 
   # def index
