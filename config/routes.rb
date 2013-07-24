@@ -4,8 +4,7 @@ App::Application.routes.draw do
 
   resources :entities, only: [:create, :update, :destroy] do
     resources :tags, only: [:create, :destroy]
-    # resources :relationships, only: [:create, :destroy]
-    # resources :relationships, path: '/relationships/:user_id', only: [:create, :destroy]
+    resources :people, only: [:create, :destroy], param: :user_id
   end
 
   scope :timeline do
