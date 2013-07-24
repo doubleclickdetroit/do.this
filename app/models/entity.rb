@@ -8,4 +8,10 @@ class Entity < ActiveRecord::Base
   def name
     title
   end
+
+  def has_user?(user)
+    return true if user == self.user
+    return true if entity_users.where(user_id: user.id).count > 0
+    false
+  end
 end

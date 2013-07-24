@@ -7,8 +7,10 @@ class Ability
     alias_action :create, :read, :update, :destroy, to: :crud
 
     can :crud, Entity, user_id: user.id
-    # can [:read, :update], Entity do |entity|
-    #   entity && entity.relationships.where(user_id: user.id).present?
+    # can :create, Entity
+    # can [:read, :update], Entity do
+    #   entity && entity.has_user?(user)
     # end
+    # can :destroy, Entity, user_id: user.id
   end
 end

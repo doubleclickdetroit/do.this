@@ -119,8 +119,8 @@ api schedule
     [\] timelines
       [X] full
       [\] by tag
-    [ ] entities
-      [ ] relationships
+    [X] entities
+      [X] people (EntityUser)
     [ ] start basic authorization
       [ ] permissions on entities where entity.people.include?(user)
       [ ] permissions on tags where entity.people.include?(user)
