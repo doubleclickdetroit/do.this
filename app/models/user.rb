@@ -7,4 +7,7 @@ class User < ActiveRecord::Base
 
   has_many :entities
   has_many :tags
+
+  has_many :entity_users
+  # has_many :entities, through: ...
 end

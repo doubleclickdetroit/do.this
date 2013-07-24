@@ -1,8 +1,9 @@
 class Entity < ActiveRecord::Base
   belongs_to :user
   has_many :tags, as: :taggable
-  has_many :relationships, as: :relatable
-  has_many :users, through: :relationships
+
+  has_many :entity_users
+  has_many :people, through: :entity_users, class_name: 'User', source: :user
 
   def name
     title

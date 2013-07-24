@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130717072053) do
+ActiveRecord::Schema.define(version: 20130724043536) do
 
   create_table "entities", force: true do |t|
     t.string   "title"
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 20130717072053) do
   end
 
   add_index "entities", ["user_id"], name: "index_entities_on_user_id", using: :btree
+
+  create_table "entity_users", force: true do |t|
+    t.integer  "entity_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "entity_users", ["entity_id"], name: "index_entity_users_on_entity_id", using: :btree
+  add_index "entity_users", ["user_id"], name: "index_entity_users_on_user_id", using: :btree
 
   create_table "tags", force: true do |t|
     t.string   "name"
