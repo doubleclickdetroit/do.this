@@ -92,6 +92,8 @@ pieces
     [ ] unique slugs for entity ids? e.g. /entities/123/entity-title
 
 todo
+  [ ] *** RAILS 4 config.secret_key_base (RC418@7:44) *** (+ template)
+  [ ] ensure no polymorphic models are used for joins
   [ ] validate tag names e.g. "all-lower-case-hyphen-separated"
   [ ] add object class to timeline json
   [ ] move "request" specs
