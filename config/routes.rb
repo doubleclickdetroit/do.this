@@ -3,6 +3,7 @@ App::Application.routes.draw do
   root to: 'home#index'
 
   resources :entities, only: [:create, :update, :destroy] do
+    resources :comments, only: [:create, :update, :destroy]
     resources :tags, only: [:create, :destroy]
     resources :people, only: [:create, :destroy], param: :user_id
   end
