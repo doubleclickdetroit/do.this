@@ -113,9 +113,9 @@ api schedule
     [ ] invited user shell accounts
   week 2
     [X] start entities
-    [\] entities
-      [\] tags
-      [ ] comments
+    [X] entities
+      [X] tags
+      [X] comments
     [\] timelines
       [X] full
       [\] by tag
