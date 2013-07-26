@@ -1,3 +1,9 @@
+todo
+  [ ] entities#show
+  [ ] include tags, people, and comments in entities/show.json
+  [ ] create stories
+    [ ] route to add entity to story
+
 hierarchy
   user ("Me")
     relationships
@@ -121,17 +127,17 @@ api schedule
       [\] by tag
     [X] entities
       [X] people (EntityUser)
-    [\] start basic authorization
-      [\] permissions on entities where entity.people.include?(user)
-      [ ] permissions on tags where entity.people.include?(user)
-      [ ] permissions on relationships where entity.people.include?(user)
-      [ ] permissions on comments where entity.people.include?(user)
     [ ] stories
       [ ] optionally nest entities
     [ ] timelines
       [ ] stories
       [ ] full to include stories
       [ ] by person
+    [\] start basic authorization
+      [\] permissions on entities where entity.people.include?(user)
+      [ ] permissions on tags where entity.people.include?(user)
+      [ ] permissions on relationships where entity.people.include?(user)
+      [ ] permissions on comments where entity.people.include?(user)
   week 3
     start subclassing entities
       asset

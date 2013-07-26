@@ -16,6 +16,9 @@ class EntitiesController < ApplicationController
     end
   end
 
+  def show
+  end
+
   def update
     respond_to do |format|
       if @entity.update(entity_params)
@@ -51,11 +54,6 @@ private
   # # GET /entities.json
   # def index
   #   @entities = Entity.all
-  # end
-
-  # # GET /entities/1
-  # # GET /entities/1.json
-  # def show
   # end
 
   # # GET /entities/new

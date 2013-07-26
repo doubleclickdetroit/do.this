@@ -2,7 +2,7 @@ App::Application.routes.draw do
   devise_for :users
   root to: 'home#index'
 
-  resources :entities, only: [:create, :update, :destroy] do
+  resources :entities, only: [:create, :show, :update, :destroy] do
     resources :comments, only: [:create, :update, :destroy]
     resources :tags, only: [:create, :destroy]
     resources :people, only: [:create, :destroy], param: :user_id

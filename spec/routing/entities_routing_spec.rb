@@ -15,6 +15,10 @@ describe EntitiesController do
       delete("/entities/1").should route_to("entities#destroy", :id => "1")
     end
 
+    it "routes to #show" do
+      get("/entities/1").should route_to("entities#show", :id => "1")
+    end
+
     # UNUSED
     it "routes to #index" do
       expect{
@@ -25,12 +29,6 @@ describe EntitiesController do
     it "routes to #new" do
       expect{
         get("/entities/new").should route_to("entities#new")
-      }.to raise_error
-    end
-
-    it "routes to #show" do
-      expect{
-        get("/entities/1").should route_to("entities#show", :id => "1")
       }.to raise_error
     end
 

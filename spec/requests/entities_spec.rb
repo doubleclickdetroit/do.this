@@ -35,7 +35,18 @@ describe EntitiesController do
       end
     end
 
-    describe "PUT/PATCH /entities" do
+    describe "GET /entities/:id" do
+      it "fetches an existing Entity" do
+        entity = create(:entity)
+        
+        get entity_path(entity), {format: :json}
+
+        json = JSON.parse response.body
+        json['title'].should eq(entity.title)
+      end
+    end
+
+    describe "PUT/PATCH /entities/:id" do
       it "updates an existing Entity" do
         entity = create(:entity)
         
@@ -55,7 +66,7 @@ describe EntitiesController do
       end
     end
 
-    describe "DELETE /entities" do
+    describe "DELETE /entities/:id" do
       it "destroys an existing Entity" do
         entity = create(:entity)
 
