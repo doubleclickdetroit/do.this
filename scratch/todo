@@ -1,6 +1,6 @@
 todo
-  [ ] entities#show
-  [ ] include tags, people, and comments in entities/show.json
+  [X] entities#show
+  [X] include tags, people, and comments in entities/show.json
   [ ] create stories
     [ ] route to add entity to story
 

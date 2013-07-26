@@ -44,6 +44,25 @@ describe EntitiesController do
         json = JSON.parse response.body
         json['title'].should eq(entity.title)
       end
+
+      it "includes tags, people, and comments with the Entity" do
+        tag1, tag2 = create(:tag), create(:tag)
+        comment1, comment2 = create(:comment), create(:comment)
+        user1, user2 = create(:user), create(:user)
+        entity = create :entity,
+          tags: [tag1, tag2],
+          people: [user1, user2],
+          comments: [comment1, comment2]
+        
+        get entity_path(entity), {format: :json}
+
+        json = JSON.parse response.body
+        json['title'].should eq(entity.title)
+
+        json['tags'].should include(tag2.name)
+        json['comments'].last['body'].should eq(comment2.body)
+        json['people'].last['name'].should eq(user2.name)
+      end
     end
 
     describe "PUT/PATCH /entities/:id" do
