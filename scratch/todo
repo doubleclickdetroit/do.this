@@ -60,16 +60,15 @@ api has routes to
       [X] comment
         [X] update comment
     stories
-      [X] title / description
-      [ ] has many 
-        [\] entities
-        [ ] tags
-        [ ] people
-      [ ] move an entity to a story
-      [ ] move an entity out of a story (?)
+      add/remove a
+        [ ] entity
+        [ ] tag
+        [ ] person
+
+      [ ] add/remove tags by name
 
     specs
-      [ ] story CRUD
+      [X] story CRUD
       [ ] story/entity CRUD
       [ ] story tags CRUD
       [ ] story people CRUD
