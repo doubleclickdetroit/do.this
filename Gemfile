@@ -59,3 +59,7 @@ group :development, :test do
     gem 'rb-fsevent' 
   end
 end
+
+group :production do
+  gem 'rails_12factor'
+end
