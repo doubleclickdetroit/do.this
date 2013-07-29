@@ -4,7 +4,7 @@ describe PeopleController do
   describe "routing" do
 
     it "routes to #create" do
-      post("/entities/123/people").should route_to("people#create", entity_id: '123')
+      post("/entities/123/people/012").should route_to("people#create", entity_id: '123', user_id: '012')
     end
 
     it "routes to #destroy" do
