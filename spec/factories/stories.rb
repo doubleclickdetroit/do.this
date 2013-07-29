@@ -1,8 +1,6 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
   factory :story do
-    title "MyString"
-    description "MyText"
+    sequence(:title) {|n| "Story Title ##{n}"}
+    description "Story\nDescription"
   end
 end
