@@ -62,11 +62,17 @@ api has routes to
     stories
       [X] title / description
       [ ] has many 
-        [ ] entities
+        [\] entities
         [ ] tags
         [ ] people
       [ ] move an entity to a story
       [ ] move an entity out of a story (?)
+
+    specs
+      [ ] story CRUD
+      [ ] story/entity CRUD
+      [ ] story tags CRUD
+      [ ] story people CRUD
 
 
 Entity(title, note, date, time)[Todo, Asset, Message, Event]
