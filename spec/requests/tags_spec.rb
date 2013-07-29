@@ -11,10 +11,11 @@ describe "Tags" do
   describe "POST /entities/:entity_id/tags" do
     it 'adds a Tag to an existing Entity' do
       tag        = build(:tag).attributes
-      tag_params = { format: :json, tag: tag }
+      # tag_params = { format: :json, tag: tag }
+      tag_params = { format: :json }
 
       expect {
-        post entity_tags_path(entity), tag_params
+        post "/entities/#{entity.id}/tags/#{tag['name']}", tag_params
       }.to change(Tag, :count).by(1)
       
       entity.tags.last.name.should eq(tag['name'])
@@ -30,7 +31,7 @@ describe "Tags" do
       entity.tags.count.should eq(1)
 
       expect {
-        delete entity_tag_path(entity, tag), { format: :json }
+        delete "/entities/#{entity.id}/tags/#{tag.name}", { format: :json }
       }.to change(Tag, :count).by(-1)
       
       entity.reload.tags.count.should eq(0)

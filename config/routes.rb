@@ -6,8 +6,8 @@ App::Application.routes.draw do
     resources :comments, only: [:create, :update, :destroy]
     resources :people, only: [:create, :destroy], param: :user_id
     # resources :tags, only: [:create, :destroy], param: :name
-    post   'tags/:name' => 'tags#create'
-    delete 'tags/:name' => 'tags#destroy'
+    post   'tags/:name' => 'tags#create',  as: :tag
+    delete 'tags/:name' => 'tags#destroy', as: :tags
   end
 
   resources :stories, only: [:create, :show, :update, :destroy] do

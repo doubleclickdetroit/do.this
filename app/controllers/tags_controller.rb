@@ -2,8 +2,7 @@ class TagsController < ApplicationController
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
 
   def create
-    entity    = Entity.find(params[:entity_id])
-    @tag      = entity.tags.build(tag_params)
+    @tag      = parent.tags.build(name: params[:name])
     @tag.user = current_user
 
     respond_to do |format|
@@ -27,9 +26,20 @@ class TagsController < ApplicationController
   end
 
 private
+  def parent
+    klass = if id = params[:entity_id]
+              Entity
+            elsif id = params[:story_id]
+              Story
+            else
+              fail "Requires parent id" # TODO
+            end
+    klass.find id
+  end
+
   # Use callbacks to share common setup or constraints between actions.
   def set_tag
-    @tag = Tag.find(params[:id])
+    @tag = parent.tags.find_by name: params[:name]
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
