@@ -1,7 +1,1 @@
-# Be sure to restart your server when you modify this file.
-
-# Your secret key for verifying the integrity of signed cookies.
-# If you change this key, all old signed cookies will become invalid!
-# Make sure the secret is at least 30 characters and all random,
-# no regular words or you'll be exposed to dictionary attacks.
-App::Application.config.secret_token = '93021988da85533bcc7000ae38df5224aa0802e6cf10a7accba4b0b8e8157f6dfa486353858ed00d323df84e4d43ccc564643a3085e4ff61e3a07d79cffdb48b'
+App::Application.config.secret_key_base = '6bdbdb0adab17943240034d3575b1dee388d02ce9db4b1ca282faf20cf50dc5b6530b0394e9481f26bde1604ff401dcfc89bd9063d4bb75994f27d7c55965958f0782de3fe12f18930542da9bbde689622654065c4f0e6a6958c52cf5d629022fddefd01ac8e6162bb6477698f802ce0221de6c1deda5005aa342c93223f9181'
