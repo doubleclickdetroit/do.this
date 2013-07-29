@@ -10,7 +10,7 @@ describe "Tags" do
   end
 
   context 'entities' do
-    describe "POST /entities/:entity_id/tags" do
+    describe "POST /entities/:entity_id/tags/:name" do
       it 'adds a Tag to an existing Entity' do
         tag        = build(:tag).attributes
         # tag_params = { format: :json, tag: tag }
@@ -26,7 +26,7 @@ describe "Tags" do
       it 'throws an error if the User does not own the Entity'
     end
 
-    describe "DELETE /entities/:entity_id/tags/:id" do
+    describe "DELETE /entities/:entity_id/tags/:name" do
       it 'removes a Tag from an existing Entity' do
         tag = create(:tag, user: user)
         entity.tags << tag
@@ -44,7 +44,7 @@ describe "Tags" do
   end
 
   context 'stories' do
-    describe "POST /stories/:story_id/tags" do
+    describe "POST /stories/:story_id/tags/:name" do
       it 'adds a Tag to an existing Story' do
         tag        = build(:tag).attributes
         # tag_params = { format: :json, tag: tag }
@@ -60,7 +60,7 @@ describe "Tags" do
       it 'throws an error if the User does not own the Story'
     end
 
-    describe "DELETE /stories/:story_id/tags/:id" do
+    describe "DELETE /stories/:story_id/tags/:name" do
       it 'removes a Tag from an existing Story' do
         tag = create(:tag, user: user)
         story.tags << tag

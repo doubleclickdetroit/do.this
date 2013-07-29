@@ -62,7 +62,7 @@ api has routes to
     stories
       add/remove a
         [ ] entity
-        [ ] tag
+        [X] tag
         [ ] person
 
       [X] add/remove tags by name
@@ -70,7 +70,7 @@ api has routes to
     specs
       [X] story CRUD
       [ ] story/entity CRUD
-      [ ] story tags CRUD
+      [X] story tags CRUD
       [ ] story people CRUD
 
 
