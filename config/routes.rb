@@ -1,6 +1,4 @@
 App::Application.routes.draw do
-  resources :stories
-
   devise_for :users
   root to: 'home#index'
 
@@ -8,6 +6,10 @@ App::Application.routes.draw do
     resources :comments, only: [:create, :update, :destroy]
     resources :tags, only: [:create, :destroy]
     resources :people, only: [:create, :destroy], param: :user_id
+  end
+
+  resources :stories, only: [:create, :show, :update, :destroy] do
+    resources :entities, only: [:create, :show, :update, :destroy]
   end
 
   scope :timeline do

@@ -60,7 +60,7 @@ api has routes to
       [X] comment
         [X] update comment
     stories
-      [ ] title / description
+      [X] title / description
       [ ] has many 
         [ ] entities
         [ ] tags
