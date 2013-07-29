@@ -1,38 +1,54 @@
 class PeopleController < ApplicationController
-  before_action :set_entity_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_relationship, only: [:show, :edit, :update, :destroy]
   # authorize_resource
 
   def create
-    @entity_user = EntityUser.new entity_id: params[:entity_id], user_id: params[:user_id]
+    @relationship = new_relationship # TODO refactor
 
     respond_to do |format|
-      if @entity_user.save
-        # format.html { redirect_to @entity_user, notice: 'Relationship was successfully created.' }
+      if @relationship.save
+        # format.html { redirect_to @relationship, notice: 'Relationship was successfully created.' }
         # format.json { render action: 'show', status: :created }
         format.json { head :created }
       else
         # format.html { render action: 'new' }
-        format.json { render json: @entity_user.errors, status: :unprocessable_entity }
+        format.json { render json: @relationship.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def destroy
-    @entity_user.destroy
+    @relationship.destroy
     respond_to do |format|
-      # format.html { redirect_to entity_url(@entity_user.entity) }
+      # format.html { redirect_to entity_url(@relationship.entity) }
       format.json { head :no_content }
     end
   end
 
 private
   # Use callbacks to share common setup or constraints between actions.
-  def set_entity_user
-    @entity_user = EntityUser.where(entity_id: params[:entity_id], user_id: params[:user_id]).first
+  def set_relationship
+    if id = params[:entity_id]
+      @relationship = EntityUser.find_by entity_id: id, user_id: params[:user_id]
+    elsif id = params[:story_id]
+      @relationship = StoryUser.find_by story_id: id, user_id: params[:user_id]
+    else
+      fail 'Requires parent id'
+    end
+  end
+
+  def new_relationship
+    if id = params[:entity_id]
+      EntityUser.new entity_id: id, user_id: params[:user_id]
+    elsif id = params[:story_id]
+      StoryUser.new story_id: id, user_id: params[:user_id]
+    else
+      fail 'Requires parent id'
+    end
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
-  def entity_user_params
-    params.require(:entity_user).permit(:user_id)
+  def relationship_params
+    params.require(:relationship).permit(:user_id)
   end
 end

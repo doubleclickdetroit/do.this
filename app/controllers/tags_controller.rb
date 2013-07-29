@@ -39,6 +39,7 @@ private
 
   # Use callbacks to share common setup or constraints between actions.
   def set_tag
+    # TODO performant?
     @tag = parent.tags.find_by name: params[:name]
   end
 
