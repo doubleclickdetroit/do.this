@@ -19,23 +19,23 @@ describe EntitiesController do
       get("/entities/1").should route_to("entities#show", :id => "1")
     end
 
-    # UNUSED
-    it "routes to #index" do
-      expect{
-        get("/entities").should route_to("entities#index")
-      }.to raise_error
-    end
+    context 'nested under /stories' do
 
-    it "routes to #new" do
-      expect{
-        get("/entities/new").should route_to("entities#new")
-      }.to raise_error
-    end
+      it "routes to #create" do
+        post("/stories/2/entities").should route_to("entities#create", :story_id => "2")
+      end
 
-    it "routes to #edit" do
-      expect{
-        get("/entities/1/edit").should route_to("entities#edit", :id => "1")
-      }.to raise_error
+      it "routes to #update" do
+        put("/stories/2/entities/1").should route_to("entities#update", :story_id => "2", :id => "1")
+      end
+
+      it "routes to #destroy" do
+        delete("/stories/2/entities/1").should route_to("entities#destroy", :story_id => "2", :id => "1")
+      end
+
+      it "routes to #show" do
+        get("/stories/2/entities/1").should route_to("entities#show", :story_id => "2", :id => "1")
+      end
     end
 
   end
