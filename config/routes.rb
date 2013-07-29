@@ -16,9 +16,14 @@ App::Application.routes.draw do
 
   resources :stories, only: [:create, :show, :update, :destroy] do
     resources :entities, only: [:create, :show, :update, :destroy]
+
     # resources :tags, only: [:create, :destroy], param: :name
     post   'tags/:name' => 'tags#create',  as: :tag
     delete 'tags/:name' => 'tags#destroy', as: :tags
+
+    # resources :people, only: [:create, :destroy], param: :user_id
+    post   'people/:user_id' => 'people#create',  as: :person
+    delete 'people/:user_id' => 'people#destroy', as: :people
   end
 
   scope :timeline do

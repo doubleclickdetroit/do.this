@@ -44,16 +44,15 @@ describe "People" do
   context "for Stories" do
     describe "POST /stories/:story_id/people" do
       it 'creates a new StoryUser for the Story' do
-        pending
         expect {
-          post story_people_path(story), { format: :json, user_id: user.id }
+          post "/stories/#{story.id}/people/#{other_user.id}", { format: :json }
         }.to change(StoryUser, :count).by(1)
 
         eu = story.story_users.last
         eu.should eq(StoryUser.last)
-        eu.user.should eq(user)
+        eu.user.should eq(other_user)
 
-        story.people.should include(user)
+        story.people.should include(other_user)
       end
 
       it 'requires a user_id'
@@ -64,11 +63,11 @@ describe "People" do
     describe "DELETE /stories/:story_id/people/:id" do
       it 'destroys the StoryUser for the Story' do
         pending
-        story.people << user
-        story.reload.people.should include(user)
+        story.people << other_user
+        story.reload.people.should include(other_user)
 
         expect {
-          delete story_person_path(story, user.id), { format: :json }
+          delete "/stories/#{story.id}/people/#{other_user.id}", { format: :json }
         }.to change(StoryUser, :count).by(-1)
       end
       it 'throws an error if the User does not own the Story'
