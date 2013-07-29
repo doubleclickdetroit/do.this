@@ -65,7 +65,7 @@ api has routes to
         [ ] tag
         [ ] person
 
-      [ ] add/remove tags by name
+      [X] add/remove tags by name
 
     specs
       [X] story CRUD

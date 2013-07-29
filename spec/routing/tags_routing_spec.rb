@@ -13,5 +13,15 @@ describe TagsController do
       end
     end
 
+    describe "nested under /stories" do
+      it "routes to #create" do
+        post("/stories/123/tags/abc").should route_to("tags#create", :story_id => "123", name: 'abc')
+      end
+
+      it "routes to #destroy" do
+        delete("/stories/456/tags/def").should route_to("tags#destroy", :story_id => "456", name: 'def')
+      end
+    end
+
   end
 end
