@@ -63,15 +63,13 @@ api has routes to
       add/remove a
         [ ] entity
         [X] tag
-        [ ] person
-
-      [X] add/remove tags by name
+        [X] person
 
     specs
       [X] story CRUD
       [ ] story/entity CRUD
       [X] story tags CRUD
-      [ ] story people CRUD
+      [X] story people CRUD
 
 
 Entity(title, note, date, time)[Todo, Asset, Message, Event]
@@ -86,7 +84,7 @@ pieces
     [\] authentication (email + oauth)
     [ ] shell accounts (for invited users)
     [X] entities
-    [ ] stories -> optionally nest entities unders stories
+    [\] stories -> optionally nest entities unders stories
     [X] tags, comments, relationships for entities
     [ ] subclassing entities
       [ ] todo
@@ -138,8 +136,8 @@ api schedule
       [\] by tag
     [X] entities
       [X] people (EntityUser)
-    [ ] stories
-      [ ] optionally nest entities
+    [\] stories
+      [\] optionally nest entities
     [ ] timelines
       [ ] stories
       [ ] full to include stories
