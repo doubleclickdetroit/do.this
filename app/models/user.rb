@@ -10,4 +10,6 @@ class User < ActiveRecord::Base
 
   has_many :entity_users
   # has_many :entities, through: ...
+  has_many :story_users
+  # has_many :stories, through: ...
 end

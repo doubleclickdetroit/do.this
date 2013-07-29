@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130729064232) do
+ActiveRecord::Schema.define(version: 20130729080847) do
 
   create_table "comments", force: true do |t|
     t.text     "body"
@@ -57,6 +57,16 @@ ActiveRecord::Schema.define(version: 20130729064232) do
   end
 
   add_index "stories", ["user_id"], name: "index_stories_on_user_id", using: :btree
+
+  create_table "story_users", force: true do |t|
+    t.integer  "story_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "story_users", ["story_id"], name: "index_story_users_on_story_id", using: :btree
+  add_index "story_users", ["user_id"], name: "index_story_users_on_user_id", using: :btree
 
   create_table "tags", force: true do |t|
     t.string   "name"
