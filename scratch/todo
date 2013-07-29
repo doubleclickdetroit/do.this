@@ -109,6 +109,7 @@ pieces
     [ ] unique slugs for entity ids? e.g. /entities/123/entity-title
 
 todo
+  [ ] includes :tags, :people, etc. for Entity/Story?
   [ ] rake rails:update (?)
   [ ] ensure no polymorphic models are used for joins
   [ ] validate tag names e.g. "all-lower-case-hyphen-separated"

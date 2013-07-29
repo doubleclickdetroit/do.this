@@ -40,12 +40,12 @@ describe "Stories" do
     end
 
     it "includes tags and people with the Story" do
-      pending 'tags and people for stories'
+      pending 'people for stories'
       tag1, tag2 = create(:tag), create(:tag)
-      user1, user2 = create(:user), create(:user)
+      # user1, user2 = create(:user), create(:user)
       story = create :story,
-        tags: [tag1, tag2],
-        people: [user1, user2]
+        tags: [tag1, tag2]
+        # people: [user1, user2]
 
       get story_path(story), {format: :json}
 
@@ -53,7 +53,7 @@ describe "Stories" do
       json['title'].should eq(story.title)
 
       json['tags'].should include(tag2.name)
-      json['people'].last['name'].should eq(user2.name)
+      # json['people'].last['name'].should eq(user2.name)
     end
   end
 
