@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130729062611) do
+ActiveRecord::Schema.define(version: 20130729063857) do
 
   create_table "comments", force: true do |t|
     t.text     "body"
@@ -32,8 +32,10 @@ ActiveRecord::Schema.define(version: 20130729062611) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "story_id"
   end
 
+  add_index "entities", ["story_id"], name: "index_entities_on_story_id", using: :btree
   add_index "entities", ["user_id"], name: "index_entities_on_user_id", using: :btree
 
   create_table "entity_users", force: true do |t|

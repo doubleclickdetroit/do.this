@@ -1,5 +1,6 @@
 class Entity < ActiveRecord::Base
   belongs_to :user
+  belongs_to :story
 
   has_many :tags, as: :taggable
   has_many :comments
