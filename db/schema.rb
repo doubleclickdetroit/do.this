@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130729080847) do
+ActiveRecord::Schema.define(version: 20130806061942) do
 
   create_table "comments", force: true do |t|
     t.text     "body"
@@ -33,9 +33,11 @@ ActiveRecord::Schema.define(version: 20130729080847) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "story_id"
+    t.string   "type"
   end
 
   add_index "entities", ["story_id"], name: "index_entities_on_story_id", using: :btree
+  add_index "entities", ["type"], name: "index_entities_on_type", using: :btree
   add_index "entities", ["user_id"], name: "index_entities_on_user_id", using: :btree
 
   create_table "entity_users", force: true do |t|

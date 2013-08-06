@@ -111,6 +111,7 @@ pieces
     [ ] unique slugs for entity ids? e.g. /entities/123/entity-title
 
 todo
+  [ ] subclass entities
   [ ] refactor Story and EntityUser into Entity
     [ ] classes
       [ ] destroy EntityUser
@@ -121,7 +122,6 @@ todo
       [ ] Entity acts_as_tree
       [ ] Entity .relationships/.people
   [ ] finish timelines (e.g. by tag, story only, by associated user)
-  [ ] subclass entities
   [ ] devise -> omniauthable
   [ ] shell accounts
   [ ] authorization
