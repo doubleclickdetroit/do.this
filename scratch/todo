@@ -23,7 +23,9 @@ resulting routes/api
     /entities 
       /entities/:entity_id/comments
       /entities/:entity_id/tags
-      /entities/:entity_id/relationships {user_id: 123}
+      /entities/:entity_id/relationships  {user_id: 123}
+      (add to story)      PUT/PATCH  /entities/:entity_id  {entity:{story_id:123}}
+      (remove from story) PUT/PATCH  /entities/:entity_id  {entity:{story_id:null}}
     /stories
       /stories/:story_id/entities
       /stories/:story_id/tags
@@ -60,6 +62,7 @@ api has routes to
       [X] comment
         [X] update comment
     stories
+      [ ] create nested entity
       add/remove a
         [ ] entity
         [X] tag

@@ -66,6 +66,11 @@ describe EntitiesController do
     end
 
     describe "PUT/PATCH /entities/:id" do
+      let(:user)   { create(:user) }
+      before(:each) do
+        post user_session_path, { user: { email: user.email, password: 'asdfasdf' } }
+      end
+
       it "updates an existing Entity" do
         entity = create(:entity)
         
@@ -82,6 +87,25 @@ describe EntitiesController do
         patch entity_path(entity), {format: :json, entity: {title: title}}
         entity.reload
         entity.title.should eq(title)
+      end
+
+      it "updates Story for existing Entity" do
+        story1 = create(:story, user: user)
+        story2 = create(:story, user: user)
+        entity = create(:entity, user: user)
+        
+        put entity_path(entity), {format: :json, entity: {story_id: story1.id}}
+        entity.reload
+        entity.story.should eq(story1)
+
+        patch entity_path(entity), {format: :json, entity: {story_id: story2.id}}
+        entity.reload
+        entity.story.should eq(story2)
+
+        # remove from story
+        put story_entity_path(story1, entity), {format: :json, entity: {story_id: nil}}
+        entity.reload
+        entity.story.should eq(nil)
       end
     end
 

@@ -47,7 +47,7 @@ private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def entity_params
-    params.require(:entity).permit(:title, :note, :time, :date)
+    params.require(:entity).permit(:title, :note, :time, :date, :story_id)
   end
 
   # # GET /entities
