@@ -1,8 +1,8 @@
 todo
   [X] entities#show
   [X] include tags, people, and comments in entities/show.json
-  [ ] create stories
-    [ ] route to add entity to story
+  [X] create stories
+    [X] route to add entity to story
 
 hierarchy
   user ("Me")
@@ -62,7 +62,7 @@ api has routes to
       [X] comment
         [X] update comment
     stories
-      [ ] create nested entity
+      [X] create nested entity
       add/remove a
         [\] entity (better route?)
         [X] tag
@@ -85,6 +85,8 @@ Entity(title, note, date, time)[Todo, Asset, Message, Event]
 pieces
   well-defined
     [\] authentication (email + oauth)
+      [\] devise
+      [ ] omniauth
     [ ] shell accounts (for invited users)
     [X] entities
     [\] stories -> optionally nest entities unders stories
@@ -109,16 +111,30 @@ pieces
     [ ] unique slugs for entity ids? e.g. /entities/123/entity-title
 
 todo
-  [ ] authorization for adding entity to story
-  [ ] includes :tags, :people, etc. for Entity/Story?
-  [ ] rake rails:update (?)
-  [ ] ensure no polymorphic models are used for joins
-  [ ] validate tag names e.g. "all-lower-case-hyphen-separated"
-  [ ] add object class to timeline json
-  [ ] move "request" specs
-  [ ] spec param filtering? (e.g. no foreign key or type setting)
-  [ ] kaminari defaults in models? e.g. paginates_per and max_paginates_per 
-
+  [ ] refactor Story and EntityUser into Entity
+    [ ] classes
+      [ ] destroy EntityUser
+      [ ] class Relationship < Entity
+      [ ] destroy Story scaffold (keep controller?)
+      [ ] class Story < Entity
+    [ ] associations
+      [ ] Entity acts_as_tree
+      [ ] Entity .relationships/.people
+  [ ] finish timelines (e.g. by tag, story only, by associated user)
+  [ ] subclass entities
+  [ ] devise -> omniauthable
+  [ ] shell accounts
+  [ ] authorization
+  misc
+    [ ] authorization for adding entity to story
+    [ ] includes :tags, :people, etc. for Entity/Story?
+    [ ] rake rails:update (?)
+    [ ] ensure no polymorphic models are used for joins
+    [ ] validate tag names e.g. "all-lower-case-hyphen-separated"
+    [ ] add object class to timeline json
+    [ ] move "request" specs
+    [ ] spec param filtering? (e.g. no foreign key or type setting)
+    [ ] kaminari defaults in models? e.g. paginates_per and max_paginates_per 
 
 api schedule
   week 1 (half week)
@@ -152,11 +168,11 @@ api schedule
       [ ] permissions on relationships where entity.people.include?(user)
       [ ] permissions on comments where entity.people.include?(user)
   week 3
-    start subclassing entities
-      asset
-        file upload (paperclip)
-          set up example upload form for front-end
-      event
-        mappable
-      todo
-      message
+    [ ] start subclassing entities
+      [ ] asset
+        [ ] file upload (paperclip)
+          [ ] set up example upload form for front-end
+      [ ] event
+        [ ] mappable
+      [ ] todo
+      [ ] message
