@@ -112,6 +112,11 @@ pieces
 
 todo
   [ ] subclass entities
+    [ ] Asset
+      [ ] paperclip
+      [ ] s3
+    [ ] Event
+      [ ] gmaps
   [ ] refactor Story and EntityUser into Entity
     [ ] classes
       [ ] destroy EntityUser

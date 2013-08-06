@@ -12,6 +12,7 @@ gem 'haml-rails'
 
 # gem 'simple_form', '~> 2.1.0'
 gem 'simple_form', github: 'plataformatec/simple_form'
+gem 'paperclip'
 
 gem 'turbolinks'
 

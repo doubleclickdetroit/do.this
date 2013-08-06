@@ -1,0 +1,2 @@
+class AssetList < Entity
+end
