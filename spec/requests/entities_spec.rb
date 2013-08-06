@@ -29,6 +29,16 @@ describe EntitiesController do
         e.date.should  eq(entity['date'])
       end
 
+      it "creates a new Entity for a Story" do
+        story = create(:story, user: user)
+
+        Entity.count.should eq(0)
+
+        post story_entities_path(story), {format: :json, entity: entity}
+
+        Entity.last.story.should eq(story)
+      end
+
       it "sets the user to current_user on a new Entity" do
         post entities_path, {format: :json, entity: entity}
         Entity.last.user.should eq(user)

@@ -3,7 +3,9 @@ class EntitiesController < ApplicationController
   authorize_resource
 
   def create
-    @entity = Entity.new(entity_params.merge({user: current_user}))
+    @entity = Entity.new(entity_params)
+    @entity.user = current_user
+    @entity.story_id = params[:story_id]
 
     respond_to do |format|
       if @entity.save

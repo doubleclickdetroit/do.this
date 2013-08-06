@@ -64,13 +64,13 @@ api has routes to
     stories
       [ ] create nested entity
       add/remove a
-        [ ] entity
+        [\] entity (better route?)
         [X] tag
         [X] person
 
     specs
       [X] story CRUD
-      [ ] story/entity CRUD
+      [X] story/entity CRUD
       [X] story tags CRUD
       [X] story people CRUD
 
@@ -109,6 +109,7 @@ pieces
     [ ] unique slugs for entity ids? e.g. /entities/123/entity-title
 
 todo
+  [ ] authorization for adding entity to story
   [ ] includes :tags, :people, etc. for Entity/Story?
   [ ] rake rails:update (?)
   [ ] ensure no polymorphic models are used for joins
